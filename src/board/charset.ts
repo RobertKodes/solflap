@@ -2,7 +2,7 @@ export const FLAP_CHARS = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:-./";
 
 export const COL = {
   flt: 6,
-  dest: 10,
+  dest: 8,
   slot: 10,
   remarks: 9,
 } as const;

@@ -23,7 +23,7 @@ describe("flight mapping", () => {
   });
 
   it("pads flap columns", () => {
-    expect(padFlap("jupiter", 10)).toBe("JUPITER   ");
+    expect(padFlap("jupiter", 8)).toBe("JUPITER ");
     expect(padFlap("CANCELLED!", 9)).toBe("CANCELLED");
   });
 

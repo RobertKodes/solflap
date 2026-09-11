@@ -1,7 +1,7 @@
 import type { ConfirmedSignatureInfo } from "@solana/web3.js";
 import type { Flight } from "../types";
 import { classifyStatus } from "./status";
-import { padFlap } from "./charset";
+import { COL, padFlap } from "./charset";
 
 export const MAX_ROWS = 12;
 export const MIN_ROWS = 8;
@@ -19,7 +19,7 @@ export function flightFromSignature(
   return {
     id: info.signature,
     flightNo: flightNoFromSig(info.signature),
-    carrier: padFlap(carrier, 10).trim() || "UNKNOWN",
+    carrier: padFlap(carrier, COL.dest).trim() || "UNKNOWN",
     slot: info.slot,
     status: classifyStatus(info.err != null, congested),
     blockTime: info.blockTime ?? null,

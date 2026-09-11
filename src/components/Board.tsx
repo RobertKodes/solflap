@@ -3,7 +3,6 @@ import { MAX_ROWS } from "../board/flights";
 import type { BoardState } from "../types";
 import { FlapRow } from "./FlapRow";
 import { FlapText } from "./FlapText";
-import { PowerPlate } from "./PowerPlate";
 
 type Props = {
   state: BoardState;
@@ -39,10 +38,17 @@ export function Board({ state, onArm, onCut }: Props) {
           <p className="mast-mark">Solflap</p>
           <p className="mast-sub">Mainnet arrivals · Hall 4</p>
         </div>
-        <div className="mast-clock" aria-label={`UTC ${state.clock}`}>
-          <span className="mast-clock-label">UTC</span>
-          <FlapText text={state.armed ? state.clock : "     "} width={5} tone="amber" seed="clock" />
-        </div>
+        {state.armed ? (
+          <div className="mast-clock" aria-label={`UTC ${state.clock}`}>
+            <span className="mast-clock-label">UTC</span>
+            <FlapText text={state.clock} width={5} tone="amber" seed="clock" />
+          </div>
+        ) : (
+          <button type="button" className="power-switch" onClick={onArm}>
+            <span className="power-switch-mark" />
+            Open
+          </button>
+        )}
       </header>
 
       <div className="board-scroll">
@@ -85,12 +91,10 @@ export function Board({ state, onArm, onCut }: Props) {
               </button>
             </>
           ) : (
-            <span>Waiting on the open click.</span>
+            <span>Board dark. Open raises the flaps.</span>
           )}
         </p>
       </footer>
-
-      {!state.armed ? <PowerPlate onOpen={onArm} /> : null}
     </section>
   );
 }

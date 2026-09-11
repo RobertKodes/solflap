@@ -7,10 +7,10 @@
   --cancel: #c24a28;
   --display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
   --mono: "IBM Plex Mono", "IBM Plex Mono Fallback", ui-monospace, monospace;
-  --tile-w: 22px;
-  --tile-h: 34px;
-  --tile-gap: 2px;
-  --row-gap: 5px;
+  --tile-w: 20px;
+  --tile-h: 38px;
+  --tile-gap: 3px;
+  --row-gap: 6px;
 }
 
 * {
@@ -42,9 +42,9 @@ button {
 
 @media (max-width: 820px) {
   :root {
-    --tile-w: 15px;
-    --tile-h: 24px;
-    --tile-gap: 1.5px;
+    --tile-w: 13px;
+    --tile-h: 26px;
+    --tile-gap: 2px;
     --row-gap: 4px;
   }
 }
